@@ -11,6 +11,20 @@ over the past decade, how trends differ across counties, and whether a
 regression model can estimate property prices based on location, sale date, 
 and available property characteristics.
 
+## Project Files
+
+The full set of scripts and datasets used for this project are provided in a 
+single zip file (`Code.zip`), which includes:
+
+- `describe.py`, `clean_dataset.py`, `feature_engineer.py`, `predict.py` — pipeline scripts
+- `Property_Price_Register_Ireland-28-05-2021.csv` — raw dataset
+- `Property_Price_Register_Ireland-28-05-2021_cleaned.csv` — cleaned dataset
+- `Property_Price_Register_Ireland-28-05-2021_features.csv` — feature-engineered dataset
+- `gadm41_IRL_1.json` — Ireland county boundary GeoJSON (used for choropleth maps)
+
+Extract the zip into the repo root before running the pipeline so the scripts 
+can find the CSV and JSON files alongside them.
+
 ## Getting Started
 
 ### 1. Install Python
