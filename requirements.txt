@@ -1,0 +1,18 @@
+# Core data handling
+pandas>=1.5
+numpy>=1.23
+
+# Visualization
+matplotlib>=3.6
+mplcursors>=0.5
+
+# Machine learning
+scikit-learn>=1.2
+
+# Time-series forecasting
+statsmodels>=0.13
+prophet>=1.1
+
+# Geospatial analysis
+geopandas>=0.12
+folium>=0.14
