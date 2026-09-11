@@ -70,7 +70,7 @@ source venv/bin/activate
 pip install pandas numpy matplotlib scikit-learn geopandas folium mplcursors statsmodels prophet
 ```
 
-Or, if a `requirements.txt` is included in the repo:
+Or
 
 ```bash
 pip install -r requirements.txt
@@ -113,10 +113,10 @@ python predict.py Property_Price_Register_Ireland-28-05-2021_features.csv
 
 ## Models Evaluated
 
-- Random Forest
-- Gradient Boosting Regressor (tuned) — **best performer**
-- Linear Regression
-- Polynomial Regression, ARIMA, and Prophet (forecasting only)
+1) Random Forest
+2) Gradient Boosting Regressor (tuned) — **best performer**
+3) Linear Regression
+4) Polynomial Regression, ARIMA, and Prophet (forecasting only)
 
 **Final model:** Tuned Gradient Boosting Regressor — MAE €18,500, RMSE €27,300, R² 0.29
 
