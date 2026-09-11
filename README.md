@@ -11,6 +11,81 @@ over the past decade, how trends differ across counties, and whether a
 regression model can estimate property prices based on location, sale date, 
 and available property characteristics.
 
+## Getting Started
+
+### 1. Install Python
+
+This project requires **Python 3.9 or later**.
+
+- **Windows / macOS:** Download the installer from [python.org/downloads](https://www.python.org/downloads/) and run it.
+  - On Windows, make sure to tick **"Add Python to PATH"** during setup.
+- **macOS (alternative):** `brew install python`
+- **Linux:** `sudo apt install python3 python3-pip` (Debian/Ubuntu)
+
+Verify the install:
+```bash
+python --version
+# or on macOS/Linux:
+python3 --version
+```
+
+### 2. Clone the repository
+
+```bash
+git clone https://github.com/<your-username>/irish-property-price-analysis.git
+cd irish-property-price-analysis
+```
+
+### 3. (Recommended) Create a virtual environment
+
+Keeps project dependencies isolated from your system Python.
+
+```bash
+python -m venv venv
+
+# Activate it:
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+```
+
+### 4. Install the required libraries
+
+```bash
+pip install pandas numpy matplotlib scikit-learn geopandas folium mplcursors statsmodels prophet
+```
+
+Or, if a `requirements.txt` is included in the repo:
+
+```bash
+pip install -r requirements.txt
+```
+
+> **Note on `geopandas`:** it depends on GEOS/GDAL/PROJ under the hood, which can be tricky to install via plain `pip` on Windows. If `pip install geopandas` fails, use conda instead:
+> ```bash
+> conda install -c conda-forge geopandas
+> ```
+
+> **Note on `prophet`:** installation can be slow as it compiles a Stan backend. If it fails, try:
+> ```bash
+> pip install prophet --no-cache-dir
+> ```
+> or install via conda: `conda install -c conda-forge prophet`
+
+### 5. Run the pipeline
+
+Scripts are run in order, each producing the input for the next:
+
+```bash
+python describe.py Property_Price_Register_Ireland-28-05-2021.csv
+python clean_dataset.py Property_Price_Register_Ireland-28-05-2021.csv
+python feature_engineer.py Property_Price_Register_Ireland-28-05-2021_cleaned.csv
+python predict.py Property_Price_Register_Ireland-28-05-2021_features.csv
+```
+
+> Adjust filenames/arguments as needed — check each script's `argparse` help with `python <script>.py --help`.
+
 ## Pipeline
 
 1. **`describe.py`** — Diagnostic exploration of the raw dataset (missing 
